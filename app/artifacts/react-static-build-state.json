@@ -1,0 +1,62 @@
+{
+  "prefetchRate": 5,
+  "maxThreads": null,
+  "disableRoutePrefixing": false,
+  "outputFileRate": 100,
+  "extensions": [
+    ".js",
+    ".jsx"
+  ],
+  "minLoadTime": 200,
+  "disablePreload": false,
+  "disableRuntime": false,
+  "preloadPollInterval": 300,
+  "productionSourceMaps": false,
+  "silent": false,
+  "entry": "index.js",
+  "plugins": [
+    [
+      "/Users/okuni/Projects/tomo-chiiku-koubou/app/node_modules/react-static-plugin-source-filesystem/node.api.js",
+      {
+        "location": "/Users/okuni/Projects/tomo-chiiku-koubou/app/src/pages"
+      }
+    ],
+    "/Users/okuni/Projects/tomo-chiiku-koubou/app/node_modules/react-static-plugin-reach-router/browser.api.js",
+    "/Users/okuni/Projects/tomo-chiiku-koubou/app/node_modules/react-static-plugin-sitemap/dist/node.api.js",
+    "/Users/okuni/Projects/tomo-chiiku-koubou/app"
+  ],
+  "paths": {
+    "ROOT": "/Users/okuni/Projects/tomo-chiiku-koubou/app",
+    "SRC": "/Users/okuni/Projects/tomo-chiiku-koubou/app/src",
+    "DIST": "/Users/okuni/Projects/tomo-chiiku-koubou/app/dist",
+    "ASSETS": "/Users/okuni/Projects/tomo-chiiku-koubou/app/dist",
+    "PLUGINS": "/Users/okuni/Projects/tomo-chiiku-koubou/app/plugins",
+    "TEMP": "/Users/okuni/Projects/tomo-chiiku-koubou/app/tmp",
+    "ARTIFACTS": "/Users/okuni/Projects/tomo-chiiku-koubou/app/artifacts",
+    "PUBLIC": "/Users/okuni/Projects/tomo-chiiku-koubou/app/public",
+    "NODE_MODULES": "/Users/okuni/Projects/tomo-chiiku-koubou/app/node_modules",
+    "EXCLUDE_MODULES": "/Users/okuni/Projects/tomo-chiiku-koubou/app/node_modules",
+    "PACKAGE": "/Users/okuni/Projects/tomo-chiiku-koubou/app/package.json",
+    "HTML_TEMPLATE": "/Users/okuni/Projects/tomo-chiiku-koubou/app/dist/index.html",
+    "STATIC_DATA": "/Users/okuni/Projects/tomo-chiiku-koubou/app/dist/staticData"
+  },
+  "siteRoot": "/",
+  "basePath": "",
+  "publicPath": "/",
+  "assetsPath": "",
+  "extractCssChunks": false,
+  "inlineCss": false,
+  "babelExcludes": [],
+  "devServer": {
+    "host": "localhost",
+    "port": 3000
+  },
+  "terser": {
+    "terserOptions": {
+      "mangle": {},
+      "parse": {},
+      "compress": {},
+      "output": {}
+    }
+  }
+}
