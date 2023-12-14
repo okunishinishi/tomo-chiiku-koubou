@@ -2,11 +2,11 @@
   "name": "react-static-example-basic",
   "private": true,
   "scripts": {
-    "start": "NODE_OPTIONS='--openssl-legacy-provider' react-static start",
+    "start": "NODE_OPTIONS='--openssl-legacy-provider --no-experimental-fetch' react-static start",
     "stage": "NODE_OPTIONS='--openssl-legacy-provider' react-static build --staging",
     "build": "NODE_OPTIONS='--openssl-legacy-provider' react-static build",
     "analyze": "NODE_OPTIONS='--openssl-legacy-provider' react-static build --analyze",
-    "serve": "NODE_OPTIONS='--openssl-legacy-provider' serve dist -p 3000"
+    "serve": "NODE_OPTIONS='--openssl-legacy-provider' serve dist -p 3002"
   },
   "dependencies": {
     "@reach/router": "^1.3.4",
