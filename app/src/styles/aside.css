@@ -1,0 +1,23 @@
+.asided-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.asided-main {
+  flex-grow: 1;
+}
+
+.aside-inner {
+  display: flex;
+  flex-direction: column;
+}
+
+.aside-item {
+  background: white;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}

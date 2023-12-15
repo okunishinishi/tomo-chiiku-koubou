@@ -677,6 +677,15 @@ var Router = __webpack_require__(3);
 /* harmony default export */ var Dynamic = (function () {
   return /*#__PURE__*/external_react_default.a.createElement("div", null, "This is a dynamic page! It will not be statically exported, but is available at runtime");
 });
+// CONCATENATED MODULE: /Users/okuni/Projects/tomo-chiiku-koubou/app/src/components/Aside.js
+
+function Aside() {
+  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Router["a" /* Link */], {
+    to: "/"
+  }, /*#__PURE__*/React.createElement("img", {
+    src: "images/text-download-term.png"
+  }))));
+}
 // EXTERNAL MODULE: /Users/okuni/Projects/tomo-chiiku-koubou/app/src/app.css
 var app = __webpack_require__(42);
 
@@ -686,28 +695,33 @@ var app = __webpack_require__(42);
 
 
 
+
  // Any routes that start with 'dynamic' will be treated as non-static routes
 
 Object(external_react_static_["addPrefetchExcludes"])(['dynamic']);
 
 function App() {
-  return /*#__PURE__*/external_react_default.a.createElement(external_react_static_["Root"], null, /*#__PURE__*/external_react_default.a.createElement("nav", null, /*#__PURE__*/external_react_default.a.createElement(Router["a" /* Link */], {
-    to: "/"
-  }, "Home"), /*#__PURE__*/external_react_default.a.createElement(Router["a" /* Link */], {
-    to: "/about"
-  }, "About"), /*#__PURE__*/external_react_default.a.createElement(Router["a" /* Link */], {
-    to: "/blog"
-  }, "Blog"), /*#__PURE__*/external_react_default.a.createElement(Router["a" /* Link */], {
-    to: "/dynamic"
-  }, "Dynamic")), /*#__PURE__*/external_react_default.a.createElement("div", {
-    className: "content"
+  return /*#__PURE__*/external_react_default.a.createElement(external_react_static_["Root"], null, /*#__PURE__*/external_react_default.a.createElement("header", null, /*#__PURE__*/external_react_default.a.createElement("div", {
+    className: "header-row"
+  }, /*#__PURE__*/external_react_default.a.createElement("img", {
+    src: "./images/title.png",
+    alt: "\u3068\u3082\u77E5\u80B2\u5DE5\u623F",
+    className: "header-img"
+  })), /*#__PURE__*/external_react_default.a.createElement("div", {
+    className: "header-row"
+  }, /*#__PURE__*/external_react_default.a.createElement("p", {
+    className: "header-msg"
+  }, "\u89AA\u5B50'\u3068\u3082'\u306B\u697D\u3057\u304F\u3066\u77E5\u80B2\u306B\u306A\u308B\uFF01 \u672A\u5C31\u5B66\u5150\u5411\u3051\u306E\u77E5\u80B2\u30D7\u30EA\u30F3\u30C8\u3084\u7D20\u6750\u3092\u516C\u958B\u4E2D\uFF01"))), /*#__PURE__*/external_react_default.a.createElement("main", null, /*#__PURE__*/external_react_default.a.createElement("div", {
+    className: "asided-container"
+  }, /*#__PURE__*/external_react_default.a.createElement("article", {
+    className: "asided-main"
   }, /*#__PURE__*/external_react_default.a.createElement(external_react_default.a.Suspense, {
     fallback: /*#__PURE__*/external_react_default.a.createElement("em", null, "Loading...")
   }, /*#__PURE__*/external_react_default.a.createElement(Router["b" /* Router */], null, /*#__PURE__*/external_react_default.a.createElement(Dynamic, {
     path: "dynamic"
   }), /*#__PURE__*/external_react_default.a.createElement(external_react_static_["Routes"], {
     path: "*"
-  })))));
+  })))), /*#__PURE__*/external_react_default.a.createElement(Aside, null))));
 }
 
 /* harmony default export */ var src_App = __webpack_exports__["a"] = (App);
@@ -1016,13 +1030,17 @@ function Blog() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_Router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3);
+
 
 /* harmony default export */ __webpack_exports__["default"] = (function () {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     style: {
       textAlign: 'center'
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Welcome to React-Static"));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Router__WEBPACK_IMPORTED_MODULE_1__[/* Link */ "a"], {
+    to: "/blog"
+  }, "Blog")));
 });
 
 /***/ }),
@@ -2025,7 +2043,7 @@ module.exports = function (originalModule) {
 
 exports = module.exports = __webpack_require__(43)(false);
 // Module
-exports.push([module.i, "* {\n  scroll-behavior: smooth;\n}\n\nbody {\n  font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue',\n    Helvetica, Arial, 'Lucida Grande', sans-serif;\n  font-weight: 300;\n  font-size: 16px;\n  margin: 0;\n  padding: 0;\n}\n\na {\n  text-decoration: none;\n  color: #108db8;\n  font-weight: bold;\n}\n\nimg {\n  max-width: 100%;\n}\n\nnav {\n  width: 100%;\n  background: #108db8;\n}\n\nnav a {\n  color: white;\n  padding: 1rem;\n  display: inline-block;\n}\n\n.content {\n  padding: 1rem;\n}\n", ""]);
+exports.push([module.i, ":root {\n  --primary-color: rgb(253, 138, 137);\n  --secondary-color: #FBE5D6;\n  --tertiary-color: #f5f5f5;\n}\n\nhtml {\n  -webkit-text-size-adjust: 100%; /* Prevent font scaling in landscape */\n  background: var(--secondary-color);\n}\n\nh1, h2, h3, h4, h5, h6 {\n  margin: 0;\n  padding: 0;\n  display: flex;\n  align-items: center;\n}\n\nbody {\n  margin: 0;\n  padding: 0;\n  font-family: Arial, sans-serif; /* Use a system default font */\n  color: #333333;\n}\n\nheader {\n  height: 120px;\n  display: flex;\n  align-content: center;\n  justify-content: center;\n  flex-direction: column;\n  background: white;\n  padding: 10px 0 20px;\n}\n\n.header-row {\n  text-align: center;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.header-msg {\n  margin: 0;\n  padding: 0;\n  font-size: 0.75rem;\n  font-weight: bold;\n}\n\n.header-img {\n  height: 90px;\n}\n\narticle {\n  padding: 24px 16px;\n}\n\naside {\n  padding: 24px 16px;\n}\n\n.asided-container {\n  display: flex;\n  flex-direction: row;\n}\n\n.asided-main {\n  flex-grow: 1;\n}\n\nmain {\n  max-width: 1024px;\n  margin: 0 auto;\n\n  flex-grow: 1;\n}\n\n@media (min-width: 768px) {\n  .asided-container {\n    flex-direction: column;\n  }\n}\n", ""]);
 
 
 

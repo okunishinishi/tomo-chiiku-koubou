@@ -4,7 +4,10 @@ import { Root, Routes, addPrefetchExcludes } from 'react-static'
 import { Router } from 'components/Router'
 import Dynamic from 'containers/Dynamic'
 
-import './app.css'
+import './styles/base.css'
+import './styles/aside.css'
+import './styles/profile.css'
+import { Asided } from './components/Asided'
 
 // Any routes that start with 'dynamic' will be treated as non-static routes
 addPrefetchExcludes(['dynamic'])
@@ -14,7 +17,7 @@ function App () {
     <Root>
       <header>
         <div className="header-row">
-          <img src="./images/title.png" alt="とも知育工房"
+          <img src="images/title.png" alt="とも知育工房"
                className="header-img"
           />
         </div>
@@ -25,16 +28,14 @@ function App () {
         </div>
       </header>
       <main>
-        <div className="asided-container">
-          <article className="asided-main">
-            <React.Suspense fallback={<em>Loading...</em>}>
-              <Router>
-                <Dynamic path="dynamic"/>
-                <Routes path="*"/>
-              </Router>
-            </React.Suspense>
-          </article>
-        </div>
+        <Asided render={() => (
+          <React.Suspense fallback={<em>Loading...</em>}>
+            <Router>
+              <Dynamic path="dynamic"/>
+              <Routes path="*"/>
+            </Router>
+          </React.Suspense>
+        )}/>
       </main>
     </Root>
   )

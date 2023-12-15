@@ -59,20 +59,12 @@ aside {
   padding: 24px 16px;
 }
 
-.asided-container {
-  display: flex;
-  flex-direction: row;
-}
-
-.asided-main {
-  flex-grow: 1;
-}
 
 main {
   max-width: 1024px;
   margin: 0 auto;
-
   flex-grow: 1;
+  padding: 10px 0 10px;
 }
 
 @media (min-width: 768px) {
