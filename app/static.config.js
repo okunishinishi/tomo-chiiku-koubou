@@ -16,6 +16,7 @@ const posts = fs.readdirSync(blogsDir)
       title,
     }
   })
+  .sort((a, b) => Number(b.id) - Number(a.id))
 
 export default {
   getRoutes: async () => {

@@ -8,14 +8,14 @@ export function Aside () {
       <div className="aside-inner">
         <div className="aside-item">
           <Link to="/">
-            <img src="images/text-download-term.png"
+            <img src="/images/text-download-term.png"
                  height={64}
             />
           </Link>
         </div>
         <div className="aside-item">
           <div>
-            <img src="images/text-profile.png"
+            <img src="/images/text-profile.png"
                  height={64}
             />
           </div>

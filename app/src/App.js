@@ -6,6 +6,7 @@ import { Router } from 'components/Router'
 import './styles/base.css'
 import './styles/aside.css'
 import './styles/profile.css'
+import './styles/list.css'
 import { Asided } from './components/Asided'
 
 function App () {
@@ -13,7 +14,7 @@ function App () {
     <Root>
       <header>
         <div className="header-row">
-          <img src="images/title.png" alt="とも知育工房"
+          <img src="/images/title.png" alt="とも知育工房"
                className="header-img"
           />
         </div>

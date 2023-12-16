@@ -3,7 +3,7 @@ import React from 'react'
 export function Profile () {
   return (
     <div className="profile">
-      <img src="images/avatar.png"
+      <img src="/images/avatar.png"
            height={148}
       />
       <h3>とも</h3>

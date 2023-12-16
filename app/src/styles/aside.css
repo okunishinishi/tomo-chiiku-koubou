@@ -5,6 +5,7 @@
 
 .asided-main {
   flex-grow: 1;
+  margin: 0 10px;
 }
 
 .aside-inner {
