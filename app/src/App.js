@@ -2,15 +2,11 @@ import React from 'react'
 import { Root, Routes, addPrefetchExcludes } from 'react-static'
 //
 import { Router } from 'components/Router'
-import Dynamic from 'containers/Dynamic'
 
 import './styles/base.css'
 import './styles/aside.css'
 import './styles/profile.css'
 import { Asided } from './components/Asided'
-
-// Any routes that start with 'dynamic' will be treated as non-static routes
-addPrefetchExcludes(['dynamic'])
 
 function App () {
   return (
@@ -31,7 +27,6 @@ function App () {
         <Asided render={() => (
           <React.Suspense fallback={<em>Loading...</em>}>
             <Router>
-              <Dynamic path="dynamic"/>
               <Routes path="*"/>
             </Router>
           </React.Suspense>
