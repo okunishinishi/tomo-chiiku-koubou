@@ -1,11 +1,24 @@
-import path from 'path'
-import axios from 'axios'
+import path from 'node:path'
+import fs from 'node:fs'
+import { marked } from 'marked'
+
+const blogsDir = path.resolve(__dirname, 'blogs')
+
+const posts = fs.readdirSync(blogsDir)
+  .filter(file => file.endsWith('.md'))
+  .map(file => {
+    const md = fs.readFileSync(path.resolve(blogsDir, file), 'utf-8')
+    const html = marked(md)
+    const [id, title] = path.basename(file, '.md').split('-')
+    return {
+      id,
+      html,
+      title,
+    }
+  })
 
 export default {
   getRoutes: async () => {
-    const { data: posts } = await axios.get(
-      'https://jsonplaceholder.typicode.com/posts'
-    )
 
     return [
       {
