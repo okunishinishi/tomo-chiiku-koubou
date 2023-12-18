@@ -1,7 +1,7 @@
 import React from 'react'
 import { Root, Routes, addPrefetchExcludes } from 'react-static'
 //
-import { Router } from 'components/Router'
+import { Link, Router } from 'components/Router'
 
 import './styles/base.css'
 import './styles/aside.css'
@@ -15,9 +15,11 @@ function App () {
     <Root>
       <header>
         <div className="header-row">
-          <img src="/images/title.png" alt="とも知育工房"
-               className="header-img"
-          />
+          <Link to="/" className="header-link">
+            <img src="/images/title.png" alt="とも知育工房"
+                 className="header-img"
+            />
+          </Link>
         </div>
         <div className="header-row">
           <p className="header-msg">

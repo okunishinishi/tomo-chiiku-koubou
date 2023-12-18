@@ -40,6 +40,14 @@ header {
   justify-content: center;
 }
 
+.header-link {
+  cursor: pointer;
+}
+
+.header-link:active {
+  opacity: 0.4;
+}
+
 .header-msg {
   margin: 0;
   padding: 0;
