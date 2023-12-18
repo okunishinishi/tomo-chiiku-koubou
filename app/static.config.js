@@ -5,11 +5,12 @@ import { marked } from 'marked'
 const blogsDir = path.resolve(__dirname, 'blogs')
 
 const posts = fs.readdirSync(blogsDir)
-  .filter(file => file.endsWith('.md'))
+  .filter(file => file.endsWith('.md') || file.endsWith('.html'))
   .map(file => {
-    const md = fs.readFileSync(path.resolve(blogsDir, file), 'utf-8')
-    const html = marked(md)
-    const [id, title] = path.basename(file, '.md').split('-')
+    const [id, title] = path.basename(file, path.extname(file)).split('-')
+    const isMarkdown = file.endsWith('.md')
+    const content = fs.readFileSync(path.resolve(blogsDir, file), 'utf-8')
+    const html = isMarkdown ? marked(content) : String(content)
     return {
       id,
       html,

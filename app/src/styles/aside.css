@@ -1,11 +1,10 @@
 .asided-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 .asided-main {
-  flex-grow: 1;
-  margin: 0 10px;
+  width: 100%;
 }
 
 .aside-inner {
@@ -21,4 +20,16 @@
   align-items: center;
   margin-bottom: 10px;
   border-radius: 10px;
+}
+
+@media (min-width: 600px) {
+  .asided-container {
+    flex-direction: row;
+  }
+
+  .asided-main {
+    width: auto;
+    flex-grow: 1;
+    margin-right: 10px;
+  }
 }
