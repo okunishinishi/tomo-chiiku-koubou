@@ -2,21 +2,50 @@
 .list {
   display: flex;
   flex-direction: column;
-  padding: 15px;
+  padding: 20px 15px;
   background: white;
   border-radius: 10px;
+  list-style: none;
+  margin: 0;
 }
 
 .list-item {
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+.list-item-inner {
   border-radius: 10px;
   padding: 5px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   border: 1px solid #333;
   background: white;
-  margin-bottom: 10px;
 }
-.list-item  a{
+
+.list-item-inner:active {
+  opacity: 0.4;
+}
+
+.list-item-col {
+  flex-direction: column;
+  display: flex;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.list-item-thumbnail {
+  object-fit: cover;
+  width: 120px;
+  height: 120px;
+  border: 1px solid #333;
+}
+
+.list-item img {
+  max-width: 100%;
+}
+
+.list-item a {
   text-decoration: none;
   color: inherit;
 }

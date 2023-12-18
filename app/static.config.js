@@ -1,6 +1,7 @@
 import path from 'node:path'
 import fs from 'node:fs'
 import { marked } from 'marked'
+import * as cheerio from 'cheerio'
 
 const blogsDir = path.resolve(__dirname, 'blogs')
 
@@ -12,10 +13,15 @@ const posts = fs.readdirSync(blogsDir)
     const content = fs.readFileSync(path.resolve(blogsDir, file), 'utf-8')
     const html = (isMarkdown ? marked(content) : String(content))
       .replaceAll('../public/', '/')
+
+    const $ = cheerio.load(html)
+
+    const img = $('img').first()
     return {
       id,
       html,
       title,
+      thumbnail: img?.attr('src'),
     }
   })
   .sort((a, b) => Number(b.id) - Number(a.id))
