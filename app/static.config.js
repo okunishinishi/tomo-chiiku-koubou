@@ -17,10 +17,16 @@ const posts = fs.readdirSync(blogsDir)
     const $ = cheerio.load(html)
 
     const img = $('img').first()
+    const lines = $.text().split('\n')
+      .map(l => l.trim())
+      .filter(Boolean)
+
+    const description = lines.slice(1).join('').slice(0, 100) ?? ''
     return {
       id,
       html,
       title,
+      description: description,
       thumbnail: img?.attr('src'),
     }
   })
