@@ -10,7 +10,8 @@ const posts = fs.readdirSync(blogsDir)
     const [id, title] = path.basename(file, path.extname(file)).split('-')
     const isMarkdown = file.endsWith('.md')
     const content = fs.readFileSync(path.resolve(blogsDir, file), 'utf-8')
-    const html = isMarkdown ? marked(content) : String(content)
+    const html = (isMarkdown ? marked(content) : String(content))
+      .replaceAll('../public/', '/')
     return {
       id,
       html,

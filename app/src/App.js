@@ -7,6 +7,7 @@ import './styles/base.css'
 import './styles/aside.css'
 import './styles/profile.css'
 import './styles/list.css'
+import './styles/post.css'
 import { Asided } from './components/Asided'
 
 function App () {
