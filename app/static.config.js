@@ -4,6 +4,7 @@ import { marked } from 'marked'
 import * as cheerio from 'cheerio'
 
 const blogsDir = path.resolve(__dirname, 'blogs')
+const termsDir = path.resolve(__dirname, 'terms')
 
 const posts = fs.readdirSync(blogsDir)
   .filter(file => file.endsWith('.md') || file.endsWith('.html'))
@@ -32,7 +33,14 @@ const posts = fs.readdirSync(blogsDir)
   })
   .sort((a, b) => Number(b.id) - Number(a.id))
 
+const term = {
+  content: fs.readFileSync(path.resolve(termsDir, 'term.html'), 'utf-8')
+}
+
 export default {
+  getSiteData:() => ({
+    appTitle: 'とも知育工房',
+  }),
   getRoutes: async () => {
 
     return [
@@ -55,6 +63,10 @@ export default {
           }),
         })),
       },
+      {
+        path:'/term',
+        getData: () => term,
+      }
     ]
   },
   plugins: [

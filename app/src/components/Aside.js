@@ -7,7 +7,7 @@ export function Aside () {
     <div>
       <div className="aside-inner">
         <div className="aside-item">
-          <Link to="/">
+          <Link to="/term">
             <img src="/images/text-download-term.png"
                  height={64}
             />
