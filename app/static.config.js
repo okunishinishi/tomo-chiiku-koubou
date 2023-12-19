@@ -18,7 +18,9 @@ const posts = fs.readdirSync(blogsDir)
     const $ = cheerio.load(html)
 
     const img = $('img').first()
-    const lines = $.text().split('\n')
+
+    const allTexts = $('div,span,p').text()
+    const lines = allTexts.split('\n')
       .map(l => l.trim())
       .filter(Boolean)
 
