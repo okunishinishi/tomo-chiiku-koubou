@@ -1,16 +1,22 @@
 import React from 'react'
-import { useRouteData } from 'react-static'
+import { useRouteData, useSiteData, Head } from 'react-static'
 
 export default function Post () {
+  const { appTitle } = useSiteData()
   const { post } = useRouteData()
   return (
-    <div className="post">
+    <>
+      <Head>
+        <title>{post.title} - {appTitle}</title>
+      </Head>
+      <div className="post">
         {
           post.html && (
             <div className="post-content"
                  dangerouslySetInnerHTML={{ __html: post.html }}/>
           )
         }
-    </div>
+      </div>
+    </>
   )
 }

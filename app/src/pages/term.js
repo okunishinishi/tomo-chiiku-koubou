@@ -1,18 +1,23 @@
 import React from 'react'
-import { useRouteData } from 'react-static'
+import { useRouteData, useSiteData, Head } from 'react-static'
 
 export default () => {
-  const d = useRouteData()
-  console.log({ d })
+  const { appTitle } = useSiteData()
+  const { content } = useRouteData()
   return (
-    <div className="term"
-    >
-      <div className="term-content"
-           dangerouslySetInnerHTML={{ __html: d.content }}
+    <>
+      <Head>
+        <title>規約 - {appTitle}</title>
+      </Head>
+      <div className="term"
       >
+        <div className="term-content"
+             dangerouslySetInnerHTML={{ __html: content }}
+        >
 
+        </div>
       </div>
-    </div>
+    </>
   )
 
 }
