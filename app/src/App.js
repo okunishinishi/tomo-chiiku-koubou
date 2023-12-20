@@ -1,8 +1,9 @@
 import React from 'react'
-import { Head, Root, Routes } from 'react-static'
+import { Root, Routes } from 'react-static'
 import { Link, Router } from 'components/Router'
 
 import './styles/base.css'
+import './styles/header.css'
 import './styles/breadcrumb.css'
 import './styles/aside.css'
 import './styles/profile.css'

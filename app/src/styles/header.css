@@ -1,0 +1,35 @@
+header {
+  height: 120px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+  background: white;
+  padding: 10px 0 20px;
+}
+
+.header-row {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-link {
+  cursor: pointer;
+}
+
+.header-link:active {
+  opacity: 0.4;
+}
+
+.header-msg {
+  margin: 0;
+  padding: 0 10px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.header-img {
+  height: 90px;
+}

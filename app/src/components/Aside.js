@@ -6,10 +6,10 @@ export function Aside () {
   return (
     <div>
       <div className="aside-inner">
-        <div className="aside-item">
+        <div className="aside-item aside-item-term">
           <Link to="/term">
             <img src="/images/text-download-term.png"
-                 height={64}
+                 height={46}
             />
           </Link>
         </div>
