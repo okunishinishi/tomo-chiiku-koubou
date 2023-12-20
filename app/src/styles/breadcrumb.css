@@ -13,6 +13,7 @@
 }
 
 .breadcrumb-button,
+.breadcrumb-button:link,
 .breadcrumb-button:visited {
   padding: 5px 0;
   color: #888;
