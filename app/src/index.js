@@ -18,9 +18,11 @@ if (typeof document !== 'undefined') {
 
   const render = Comp => {
     renderMethod(
-      <AppContainer>
-        <Comp />
-      </AppContainer>,
+      <React.Suspense fallback={null}>
+        <AppContainer>
+          <Comp/>
+        </AppContainer>
+      </React.Suspense>,
       target
     )
   }
