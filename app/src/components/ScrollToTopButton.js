@@ -20,7 +20,7 @@ export function ScrollToTopButton () {
         }
       } else {
         button.classList.add('scroll-to-top-btn-hidden')
-        button.style.right = 'auto'
+        button.style.right = 20
       }
     }
 
