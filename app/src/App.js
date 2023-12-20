@@ -3,6 +3,7 @@ import { Root, Routes } from 'react-static'
 import { Link, Router } from 'components/Router'
 
 import './styles/base.css'
+import './styles/breadcrumb.css'
 import './styles/aside.css'
 import './styles/profile.css'
 import './styles/list.css'

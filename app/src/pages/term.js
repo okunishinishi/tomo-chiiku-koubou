@@ -1,5 +1,6 @@
 import React from 'react'
 import { useRouteData, useSiteData, Head } from 'react-static'
+import { Breadcrumb } from '../components/Breadcrumb'
 
 export default () => {
   const { appTitle } = useSiteData()
@@ -9,6 +10,9 @@ export default () => {
       <Head>
         <title>規約 - {appTitle}</title>
       </Head>
+      <Breadcrumb links={[
+        { to: '/term', label: '規約' },
+      ]}/>
       <div className="term"
       >
         <div className="term-content"

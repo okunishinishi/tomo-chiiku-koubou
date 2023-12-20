@@ -1,0 +1,26 @@
+.breadcrumb {
+  display: flex;
+  flex-direction: row;
+  padding: 10px 0;
+  align-items: center;
+  color: #888;
+}
+
+.breadcrumb-separator {
+  display: inline-block;
+  padding: 0 10px;
+  font-size: x-small;
+}
+
+.breadcrumb-button,
+.breadcrumb-button:visited {
+  padding: 5px 0;
+  color: #888;
+  font-size: x-small;
+  text-decoration: none;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 120px;
+  text-overflow: ellipsis;
+}

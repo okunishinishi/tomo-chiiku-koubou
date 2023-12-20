@@ -9,6 +9,14 @@ html {
   background: var(--secondary-color);
 }
 
+a:link {
+  color: var(--primary-color);
+}
+
+a:visited {
+  color: var(--primary-color);
+}
+
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
   padding: 0;
@@ -72,4 +80,6 @@ main {
   padding: 10px;
   box-sizing: border-box;
 }
+
+
 
