@@ -14,6 +14,7 @@ import './styles/scroll.css'
 import { Asided } from './components/Asided'
 import { GA } from './components/GA'
 import { ScrollToTopButton } from './components/ScrollToTopButton'
+import { Scroller } from './components/Scroller'
 
 function App () {
   const {
@@ -48,6 +49,7 @@ function App () {
             </Router>
           </React.Suspense>
         )}/>
+        <Scroller />
         <ScrollToTopButton/>
       </main>
     </Root>
