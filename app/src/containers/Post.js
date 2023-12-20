@@ -1,15 +1,13 @@
 import React from 'react'
 import { useRouteData, useSiteData, Head } from 'react-static'
 import { Breadcrumb } from '../components/Breadcrumb'
+import { Meta } from '../components/Meta'
 
 export default function Post () {
-  const { appTitle } = useSiteData()
   const { post } = useRouteData()
   return (
     <>
-      <Head>
-        <title>{post.title} - {appTitle}</title>
-      </Head>
+      <Meta subTitle={post.title}/>
       <Breadcrumb links={[
         { to: '/blog/post/' + post.id, label: post.title },
       ]}/>

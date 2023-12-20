@@ -40,8 +40,9 @@ const term = {
 }
 
 export default {
-  getSiteData:() => ({
+  getSiteData: () => ({
     appTitle: 'とも知育工房',
+    appDescription: `親子'とも'に楽しくて知育になる！ 未就学児向けの知育プリントや素材を公開中！`
   }),
   getRoutes: async () => {
 
@@ -66,7 +67,7 @@ export default {
         })),
       },
       {
-        path:'/term',
+        path: '/term',
         getData: () => term,
       }
     ]

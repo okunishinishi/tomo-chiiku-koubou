@@ -1,5 +1,5 @@
 import React from 'react'
-import { Head, Root, Routes } from 'react-static'
+import { Head, Root, Routes, useSiteData } from 'react-static'
 import { Link, Router } from 'components/Router'
 
 import './styles/base.css'
@@ -16,23 +16,27 @@ import { GA } from './components/GA'
 import { ScrollToTopButton } from './components/ScrollToTopButton'
 
 function App () {
+  const {
+    appTitle,
+    appDescription
+  } = useSiteData()
   return (
     <Root>
       <GA/>
       <Head>
-        <meta name="google-site-verification" content="Q0Nv-ILCP08JCV33VdQ5No4MeMlyTVib-WTJe2FTqas" />
+        <meta name="google-site-verification" content="Q0Nv-ILCP08JCV33VdQ5No4MeMlyTVib-WTJe2FTqas"/>
       </Head>
       <header>
         <div className="header-row">
           <Link to="/" className="header-link">
-            <img src="/images/title.png" alt="とも知育工房"
+            <img src="/images/title.png" alt={appTitle}
                  className="header-img"
             />
           </Link>
         </div>
         <div className="header-row">
           <p className="header-msg">
-            親子'とも'に楽しくて知育になる！ 未就学児向けの知育プリントや素材を公開中！
+            {appDescription}
           </p>
         </div>
       </header>

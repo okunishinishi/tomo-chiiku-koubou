@@ -1,15 +1,13 @@
 import React from 'react'
 import { useRouteData, useSiteData, Head } from 'react-static'
 import { Breadcrumb } from '../components/Breadcrumb'
+import { Meta } from '../components/Meta'
 
 export default () => {
-  const { appTitle } = useSiteData()
   const { content } = useRouteData()
   return (
     <>
-      <Head>
-        <title>規約 - {appTitle}</title>
-      </Head>
+      <Meta subTitle="規約"/>
       <Breadcrumb links={[
         { to: '/term', label: '規約' },
       ]}/>
