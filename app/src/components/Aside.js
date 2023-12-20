@@ -4,7 +4,7 @@ import { Profile } from './Profile'
 
 export function Aside () {
   return (
-    <div>
+    <div className='aside'>
       <div className="aside-inner">
         <div className="aside-item aside-item-term">
           <Link to="/term">
