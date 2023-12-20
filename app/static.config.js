@@ -19,7 +19,10 @@ const posts = fs.readdirSync(blogsDir)
 
     const img = $('img').first()
 
-    const allTexts = $('div,span,p').text()
+    // Remove <style> tags
+    $('style').remove();
+
+    const allTexts = $.text()
     const lines = allTexts.split('\n')
       .map(l => l.trim())
       .filter(Boolean)
