@@ -1,5 +1,5 @@
 import React from 'react'
-import { Root, Routes } from 'react-static'
+import { Head, Root, Routes } from 'react-static'
 import { Link, Router } from 'components/Router'
 
 import './styles/base.css'
@@ -19,6 +19,9 @@ function App () {
   return (
     <Root>
       <GA/>
+      <Head>
+        <meta name="google-site-verification" content="Q0Nv-ILCP08JCV33VdQ5No4MeMlyTVib-WTJe2FTqas" />
+      </Head>
       <header>
         <div className="header-row">
           <Link to="/" className="header-link">
