@@ -155,6 +155,97 @@ module.exports = require("babel-plugin-universal-import/universalImport");
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
+/*
+  MIT License http://www.opensource.org/licenses/mit-license.php
+  Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+
+module.exports = function (useSourceMap) {
+  var list = []; // return the list of modules as css string
+
+  list.toString = function toString() {
+    return this.map(function (item) {
+      var content = cssWithMappingToString(item, useSourceMap);
+
+      if (item[2]) {
+        return '@media ' + item[2] + '{' + content + '}';
+      } else {
+        return content;
+      }
+    }).join('');
+  }; // import a list of modules into the list
+
+
+  list.i = function (modules, mediaQuery) {
+    if (typeof modules === 'string') {
+      modules = [[null, modules, '']];
+    }
+
+    var alreadyImportedModules = {};
+
+    for (var i = 0; i < this.length; i++) {
+      var id = this[i][0];
+
+      if (id != null) {
+        alreadyImportedModules[id] = true;
+      }
+    }
+
+    for (i = 0; i < modules.length; i++) {
+      var item = modules[i]; // skip already imported module
+      // this implementation is not 100% perfect for weird media query combinations
+      // when a module is imported multiple times with different media queries.
+      // I hope this will never occur (Hey this way we have smaller bundles)
+
+      if (item[0] == null || !alreadyImportedModules[item[0]]) {
+        if (mediaQuery && !item[2]) {
+          item[2] = mediaQuery;
+        } else if (mediaQuery) {
+          item[2] = '(' + item[2] + ') and (' + mediaQuery + ')';
+        }
+
+        list.push(item);
+      }
+    }
+  };
+
+  return list;
+};
+
+function cssWithMappingToString(item, useSourceMap) {
+  var content = item[1] || '';
+  var cssMapping = item[3];
+
+  if (!cssMapping) {
+    return content;
+  }
+
+  if (useSourceMap && typeof btoa === 'function') {
+    var sourceMapping = toComment(cssMapping);
+    var sourceURLs = cssMapping.sources.map(function (source) {
+      return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */';
+    });
+    return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
+  }
+
+  return [content].join('\n');
+} // Adapted from convert-source-map (MIT)
+
+
+function toComment(sourceMap) {
+  // eslint-disable-next-line no-undef
+  var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
+  var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
+  return '/*# ' + data + ' */';
+}
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /* WEBPACK VAR INJECTION */(function(module) {
 
 var _typeof = __webpack_require__(12);
@@ -628,97 +719,6 @@ function universal(asyncModule) {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(33)(module)))
 
 /***/ }),
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-/*
-  MIT License http://www.opensource.org/licenses/mit-license.php
-  Author Tobias Koppers @sokra
-*/
-// css base code, injected by the css-loader
-
-module.exports = function (useSourceMap) {
-  var list = []; // return the list of modules as css string
-
-  list.toString = function toString() {
-    return this.map(function (item) {
-      var content = cssWithMappingToString(item, useSourceMap);
-
-      if (item[2]) {
-        return '@media ' + item[2] + '{' + content + '}';
-      } else {
-        return content;
-      }
-    }).join('');
-  }; // import a list of modules into the list
-
-
-  list.i = function (modules, mediaQuery) {
-    if (typeof modules === 'string') {
-      modules = [[null, modules, '']];
-    }
-
-    var alreadyImportedModules = {};
-
-    for (var i = 0; i < this.length; i++) {
-      var id = this[i][0];
-
-      if (id != null) {
-        alreadyImportedModules[id] = true;
-      }
-    }
-
-    for (i = 0; i < modules.length; i++) {
-      var item = modules[i]; // skip already imported module
-      // this implementation is not 100% perfect for weird media query combinations
-      // when a module is imported multiple times with different media queries.
-      // I hope this will never occur (Hey this way we have smaller bundles)
-
-      if (item[0] == null || !alreadyImportedModules[item[0]]) {
-        if (mediaQuery && !item[2]) {
-          item[2] = mediaQuery;
-        } else if (mediaQuery) {
-          item[2] = '(' + item[2] + ') and (' + mediaQuery + ')';
-        }
-
-        list.push(item);
-      }
-    }
-  };
-
-  return list;
-};
-
-function cssWithMappingToString(item, useSourceMap) {
-  var content = item[1] || '';
-  var cssMapping = item[3];
-
-  if (!cssMapping) {
-    return content;
-  }
-
-  if (useSourceMap && typeof btoa === 'function') {
-    var sourceMapping = toComment(cssMapping);
-    var sourceURLs = cssMapping.sources.map(function (source) {
-      return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */';
-    });
-    return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
-  }
-
-  return [content].join('\n');
-} // Adapted from convert-source-map (MIT)
-
-
-function toComment(sourceMap) {
-  // eslint-disable-next-line no-undef
-  var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
-  var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
-  return '/*# ' + data + ' */';
-}
-
-/***/ }),
 /* 7 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -836,23 +836,29 @@ var Router = __webpack_require__(4);
 // EXTERNAL MODULE: /Users/okuni/Projects/tomo-chiiku-koubou/app/src/styles/base.css
 var base = __webpack_require__(45);
 
+// EXTERNAL MODULE: /Users/okuni/Projects/tomo-chiiku-koubou/app/src/styles/header.css
+var header = __webpack_require__(46);
+
 // EXTERNAL MODULE: /Users/okuni/Projects/tomo-chiiku-koubou/app/src/styles/breadcrumb.css
-var breadcrumb = __webpack_require__(46);
+var breadcrumb = __webpack_require__(47);
 
 // EXTERNAL MODULE: /Users/okuni/Projects/tomo-chiiku-koubou/app/src/styles/aside.css
-var aside = __webpack_require__(47);
+var aside = __webpack_require__(48);
 
 // EXTERNAL MODULE: /Users/okuni/Projects/tomo-chiiku-koubou/app/src/styles/profile.css
-var profile = __webpack_require__(48);
+var profile = __webpack_require__(49);
 
 // EXTERNAL MODULE: /Users/okuni/Projects/tomo-chiiku-koubou/app/src/styles/list.css
-var list = __webpack_require__(49);
+var list = __webpack_require__(50);
 
 // EXTERNAL MODULE: /Users/okuni/Projects/tomo-chiiku-koubou/app/src/styles/post.css
-var post = __webpack_require__(50);
+var post = __webpack_require__(51);
 
 // EXTERNAL MODULE: /Users/okuni/Projects/tomo-chiiku-koubou/app/src/styles/term.css
-var term = __webpack_require__(51);
+var term = __webpack_require__(52);
+
+// EXTERNAL MODULE: /Users/okuni/Projects/tomo-chiiku-koubou/app/src/styles/scroll.css
+var styles_scroll = __webpack_require__(53);
 
 // CONCATENATED MODULE: /Users/okuni/Projects/tomo-chiiku-koubou/app/src/components/Profile.js
 
@@ -874,12 +880,12 @@ function Aside() {
   return /*#__PURE__*/external_react_default.a.createElement("div", null, /*#__PURE__*/external_react_default.a.createElement("div", {
     className: "aside-inner"
   }, /*#__PURE__*/external_react_default.a.createElement("div", {
-    className: "aside-item"
+    className: "aside-item aside-item-term"
   }, /*#__PURE__*/external_react_default.a.createElement(Router["a" /* Link */], {
     to: "/term"
   }, /*#__PURE__*/external_react_default.a.createElement("img", {
     src: "/images/text-download-term.png",
-    height: 64
+    height: 46
   }))), /*#__PURE__*/external_react_default.a.createElement("div", {
     className: "aside-item"
   }, /*#__PURE__*/external_react_default.a.createElement("div", null, /*#__PURE__*/external_react_default.a.createElement("img", {
@@ -908,11 +914,49 @@ var GA_GA = function GA() {
     src: "https://www.googletagmanager.com/gtag/js?id=G-MZC81C79Z9"
   }), /*#__PURE__*/external_react_default.a.createElement("script", {
     dangerouslySetInnerHTML: {
-      __html: "\n        console.log('!!loaded')\n          window.dataLayer = window.dataLayer || [];\n          function gtag(){dataLayer.push(arguments)}\n          gtag('js', new Date());\n          gtag('config', 'G-MZC81C79Z9');\n        "
+      __html: "\n          window.dataLayer = window.dataLayer || [];\n          function gtag(){dataLayer.push(arguments)}\n          gtag('js', new Date());\n          gtag('config', 'G-MZC81C79Z9');\n        "
     }
   }));
 };
+// CONCATENATED MODULE: /Users/okuni/Projects/tomo-chiiku-koubou/app/src/components/ScrollToTopButton.js
+
+
+function ScrollToTopButton() {
+  var scrollToTop = function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
+  var btnRef = Object(external_react_["useRef"])(null);
+  Object(external_react_["useEffect"])(function () {
+    var onScroll = function onScroll() {
+      var button = btnRef.current;
+      var threshold = 20;
+
+      if (document.body.scrollTop > threshold || document.documentElement.scrollTop > threshold) {
+        button.classList.remove('scroll-to-top-btn-hidden');
+      } else {
+        button.classList.add('scroll-to-top-btn-hidden');
+      }
+    };
+
+    window.addEventListener('scroll', onScroll);
+    return function () {
+      window.removeEventListener('scroll', onScroll);
+    };
+  }, []);
+  return /*#__PURE__*/external_react_default.a.createElement("a", {
+    className: "scroll-to-top-btn scroll-to-top-btn-hidden",
+    onClick: scrollToTop,
+    ref: btnRef
+  }, "\u2B06\uFE0E");
+}
 // CONCATENATED MODULE: /Users/okuni/Projects/tomo-chiiku-koubou/app/src/App.js
+
+
+
 
 
 
@@ -948,7 +992,7 @@ function App() {
         path: "*"
       })));
     }
-  })));
+  }), /*#__PURE__*/external_react_default.a.createElement(ScrollToTopButton, null)));
 }
 
 /* harmony default export */ var src_App = __webpack_exports__["a"] = (App);
@@ -1563,7 +1607,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var babel_plugin_universal_import_universalImport__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(babel_plugin_universal_import_universalImport__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react_universal_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(5);
+/* harmony import */ var react_universal_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6);
 /* harmony import */ var react_universal_component__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_universal_component__WEBPACK_IMPORTED_MODULE_3__);
 
 
@@ -2087,7 +2131,7 @@ var _hoistNonReactStatics = __webpack_require__(18);
 
 var _hoistNonReactStatics2 = _interopRequireDefault(_hoistNonReactStatics);
 
-var _index = __webpack_require__(5);
+var _index = __webpack_require__(6);
 
 var _index2 = _interopRequireDefault(_index);
 
@@ -2311,9 +2355,9 @@ module.exports = function (originalModule) {
 /* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(6)(false);
+exports = module.exports = __webpack_require__(5)(false);
 // Module
-exports.push([module.i, ":root {\n  --primary-color: rgb(253, 138, 137);\n  --secondary-color: #FBE5D6;\n  --tertiary-color: #f5f5f5;\n}\n\nhtml {\n  -webkit-text-size-adjust: 100%; /* Prevent font scaling in landscape */\n  background: var(--secondary-color);\n}\n\na:link {\n  color: var(--primary-color);\n}\n\na:visited {\n  color: var(--primary-color);\n}\n\nh1, h2, h3, h4, h5, h6 {\n  margin: 0;\n  padding: 0;\n  display: flex;\n  align-items: center;\n  line-height: 1.25em;\n}\n\nbody {\n  margin: 0;\n  padding: 0;\n  font-family: Arial, sans-serif; /* Use a system default font */\n  color: #333333;\n}\n\nheader {\n  height: 120px;\n  display: flex;\n  align-content: center;\n  justify-content: center;\n  flex-direction: column;\n  background: white;\n  padding: 10px 0 20px;\n}\n\n.header-row {\n  text-align: center;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.header-link {\n  cursor: pointer;\n}\n\n.header-link:active {\n  opacity: 0.4;\n}\n\n.header-msg {\n  margin: 0;\n  padding: 0;\n  font-size: 0.75rem;\n  font-weight: bold;\n}\n\n.header-img {\n  height: 90px;\n}\n\naside {\n  padding: 24px 16px;\n}\n\n\nmain {\n  max-width: 1024px;\n  margin: 0 auto;\n  flex-grow: 1;\n  padding: 10px;\n  box-sizing: border-box;\n}\n\n\n\n", ""]);
+exports.push([module.i, ":root {\n  --primary-color: rgb(253, 138, 137);\n  --secondary-color: #FBE5D6;\n  --tertiary-color: #f5f5f5;\n}\n\nhtml {\n  -webkit-text-size-adjust: 100%; /* Prevent font scaling in landscape */\n  background: var(--secondary-color);\n}\n\na:link {\n  color: var(--primary-color);\n}\n\n\na:visited {\n  color: var(--primary-color);\n}\n\na:link:active,\na:visited:active {\n  opacity: 0.4;\n}\n\nh1, h2, h3, h4, h5, h6 {\n  margin: 0;\n  padding: 0;\n  display: flex;\n  align-items: center;\n  line-height: 1.25em;\n}\n\nbody {\n  margin: 0;\n  padding: 0;\n  font-family: Arial, sans-serif; /* Use a system default font */\n  color: #333333;\n}\n\n\naside {\n  padding: 24px 16px;\n}\n\n\nmain {\n  max-width: 1024px;\n  margin: 0 auto;\n  flex-grow: 1;\n  padding: 10px;\n  box-sizing: border-box;\n  position: relative;\n}\n\n\n\n", ""]);
 
 
 
@@ -2321,9 +2365,9 @@ exports.push([module.i, ":root {\n  --primary-color: rgb(253, 138, 137);\n  --se
 /* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(6)(false);
+exports = module.exports = __webpack_require__(5)(false);
 // Module
-exports.push([module.i, ".breadcrumb {\n  display: flex;\n  flex-direction: row;\n  padding: 10px 0;\n  align-items: center;\n  color: #888;\n}\n\n.breadcrumb-separator {\n  display: inline-block;\n  padding: 0 10px;\n  font-size: x-small;\n}\n\n.breadcrumb-button,\n.breadcrumb-button:link,\n.breadcrumb-button:visited {\n  padding: 5px 0;\n  color: #888;\n  font-size: x-small;\n  text-decoration: none;\n  display: inline-block;\n  overflow: hidden;\n  white-space: nowrap;\n  max-width: 120px;\n  text-overflow: ellipsis;\n}\n", ""]);
+exports.push([module.i, "header {\n  height: 120px;\n  display: flex;\n  align-content: center;\n  justify-content: center;\n  flex-direction: column;\n  background: white;\n  padding: 10px 0 20px;\n}\n\n.header-row {\n  text-align: center;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.header-link {\n  cursor: pointer;\n}\n\n.header-link:active {\n  opacity: 0.4;\n}\n\n.header-msg {\n  margin: 0;\n  padding: 0 10px;\n  font-size: 0.75rem;\n  font-weight: bold;\n}\n\n.header-img {\n  height: 90px;\n}\n", ""]);
 
 
 
@@ -2331,9 +2375,9 @@ exports.push([module.i, ".breadcrumb {\n  display: flex;\n  flex-direction: row;
 /* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(6)(false);
+exports = module.exports = __webpack_require__(5)(false);
 // Module
-exports.push([module.i, ".asided-container {\n  display: flex;\n  flex-direction: column;\n  max-width: 100%;\n}\n\n.asided-main {\n  width: 100%;\n}\n\n.aside-inner {\n  display: flex;\n  flex-direction: column;\n}\n\n.aside-item {\n  background: white;\n  padding: 5px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  margin-bottom: 10px;\n  border-radius: 10px;\n}\n\n@media (min-width: 600px) {\n  .asided-container {\n    flex-direction: row;\n  }\n\n  .asided-main {\n    width: auto;\n    flex-grow: 1;\n    margin-right: 10px;\n  }\n}\n", ""]);
+exports.push([module.i, ".breadcrumb {\n  display: flex;\n  flex-direction: row;\n  padding: 10px 0;\n  align-items: center;\n  color: #888;\n}\n\n.breadcrumb-separator {\n  display: inline-block;\n  padding: 0 10px;\n  font-size: x-small;\n}\n\n.breadcrumb-button,\n.breadcrumb-button:link,\n.breadcrumb-button:visited {\n  padding: 5px 0;\n  color: #888;\n  font-size: x-small;\n  text-decoration: none;\n  display: inline-block;\n  overflow: hidden;\n  white-space: nowrap;\n  max-width: 120px;\n  text-overflow: ellipsis;\n}\n", ""]);
 
 
 
@@ -2341,9 +2385,9 @@ exports.push([module.i, ".asided-container {\n  display: flex;\n  flex-direction
 /* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(6)(false);
+exports = module.exports = __webpack_require__(5)(false);
 // Module
-exports.push([module.i, ".profile {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  max-width: 250px;\n  padding: 10px;\n}\n\n\n.profile-list {\n  padding-left: 20px;\n}\n", ""]);
+exports.push([module.i, ".asided-container {\n  display: flex;\n  flex-direction: column;\n  max-width: 100%;\n}\n\n.asided-main {\n  width: 100%;\n}\n\n.aside-inner {\n  display: flex;\n  flex-direction: column;\n}\n\n.aside-item {\n  background: white;\n  padding: 5px 10px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  margin-bottom: 10px;\n  border-radius: 10px;\n}\n\n.aside-item-term a {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  margin: 10px 0;\n}\n\n@media (min-width: 600px) {\n  .asided-container {\n    flex-direction: row;\n  }\n\n  .asided-main {\n    width: auto;\n    flex-grow: 1;\n    margin-right: 10px;\n  }\n}\n", ""]);
 
 
 
@@ -2351,9 +2395,9 @@ exports.push([module.i, ".profile {\n  display: flex;\n  flex-direction: column;
 /* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(6)(false);
+exports = module.exports = __webpack_require__(5)(false);
 // Module
-exports.push([module.i, "\n.list {\n  display: flex;\n  flex-direction: column;\n  padding: 20px 15px;\n  background: white;\n  border-radius: 10px;\n  list-style: none;\n  margin: 0 0 10px;\n}\n\n.list-item {\n  list-style: none;\n  margin-bottom: 20px;\n}\n\n.list-item-inner {\n  border-radius: 10px;\n  display: flex;\n  flex-direction: column;\n  border: 1px solid #333;\n  background: white;\n  overflow: hidden;\n}\n\n.list-item-inner:active {\n  opacity: 0.4;\n}\n\n.list-item-col {\n  flex-direction: column;\n  display: flex;\n  box-sizing: border-box;\n}\n\n.list-item-thumbnail-container {\n  background: #F5F5F5;\n  align-items: center;\n  justify-content: center;\n  display: flex;\n}\n\n.list-item-thumbnail {\n  -o-object-fit: contain;\n     object-fit: contain;\n  width: 100%;\n}\n\n.list-item img {\n  max-width: 100%;\n}\n\n.list-item a {\n  text-decoration: none;\n  color: inherit;\n}\n\n.list-item-title {\n  text-align: left;\n  margin-bottom: 10px;\n}\n\n.list-item-col-text-container {\n  padding: 10px;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n}\n\n.list-item-desc {\n  box-sizing: border-box;\n  overflow: hidden;\n  display: -webkit-box;\n  -webkit-line-clamp: 3;\n  -webkit-box-orient: vertical;\n  text-overflow: ellipsis;\n  max-height: 4.5em;\n  line-height: 1.25em;\n  margin: 0;\n  text-align: left;\n}\n\n@media (min-width: 480px) {\n  .list-item-inner {\n    flex-direction: row;\n  }\n  .list-item-col {\n    width: 50%;\n  }\n}\n", ""]);
+exports.push([module.i, ".profile {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  padding: 10px;\n}\n\n\n.profile-list {\n  padding-left: 20px;\n}\n", ""]);
 
 
 
@@ -2361,9 +2405,9 @@ exports.push([module.i, "\n.list {\n  display: flex;\n  flex-direction: column;\
 /* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(6)(false);
+exports = module.exports = __webpack_require__(5)(false);
 // Module
-exports.push([module.i, "\n.post {\n  background: white;\n  padding: 20px 15px;\n  border-radius: 10px;\n  margin-bottom: 10px;\n}\n\n.post-content img {\n  -o-object-fit: contain;\n     object-fit: contain;\n  max-width: 100%;\n}\n", ""]);
+exports.push([module.i, "\n.list {\n  display: flex;\n  flex-direction: column;\n  padding: 20px 15px;\n  background: white;\n  border-radius: 10px;\n  list-style: none;\n  margin: 0 0 10px;\n}\n\n.list-item {\n  list-style: none;\n  margin-bottom: 20px;\n}\n\n.list-item-inner {\n  border-radius: 10px;\n  display: flex;\n  flex-direction: column;\n  border: 1px solid #333;\n  background: white;\n  overflow: hidden;\n}\n\n.list-item-inner:active {\n  opacity: 0.4;\n}\n\n.list-item-col {\n  flex-direction: column;\n  display: flex;\n  box-sizing: border-box;\n}\n\n.list-item-thumbnail-container {\n  background: #F5F5F5;\n  align-items: center;\n  justify-content: center;\n  display: flex;\n}\n\n.list-item-thumbnail {\n  -o-object-fit: contain;\n     object-fit: contain;\n  width: 100%;\n}\n\n.list-item img {\n  max-width: 100%;\n}\n\n.list-item a {\n  text-decoration: none;\n  color: inherit;\n}\n\n.list-item-title {\n  text-align: left;\n  margin-bottom: 10px;\n}\n\n.list-item-col-text-container {\n  padding: 10px;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n}\n\n.list-item-desc {\n  box-sizing: border-box;\n  overflow: hidden;\n  display: -webkit-box;\n  -webkit-line-clamp: 3;\n  -webkit-box-orient: vertical;\n  text-overflow: ellipsis;\n  max-height: 4.5em;\n  line-height: 1.25em;\n  margin: 0;\n  text-align: left;\n}\n\n@media (min-width: 480px) {\n  .list-item-inner {\n    flex-direction: row;\n  }\n  .list-item-col {\n    width: 50%;\n  }\n}\n", ""]);
 
 
 
@@ -2371,9 +2415,29 @@ exports.push([module.i, "\n.post {\n  background: white;\n  padding: 20px 15px;\
 /* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(6)(false);
+exports = module.exports = __webpack_require__(5)(false);
+// Module
+exports.push([module.i, "\n.post {\n  background: white;\n  padding: 20px 15px;\n  border-radius: 10px;\n  margin-bottom: 10px;\n}\n\n.post-content img {\n  -o-object-fit: contain;\n     object-fit: contain;\n  max-width: 100%;\n}\n", ""]);
+
+
+
+/***/ }),
+/* 52 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(5)(false);
 // Module
 exports.push([module.i, "\n.term {\n  display: flex;\n  flex-direction: column;\n  padding: 20px 15px;\n  background: white;\n  border-radius: 10px;\n  list-style: none;\n  margin: 0 0 10px;\n}\n", ""]);
+
+
+
+/***/ }),
+/* 53 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(5)(false);
+// Module
+exports.push([module.i, "\n.scroll-to-top-btn {\n  display: flex;\n  position: absolute;\n  right: 20px;\n  bottom: 20px;\n  padding: 10px;\n  background-color: rgb(253, 138, 137);\n  color: white;\n  border: none;\n  cursor: pointer;\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  box-sizing: border-box;\n  text-align: center;\n  align-items: center;\n  justify-content: center;\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  opacity: 1;\n  transition: opacity 0.2s linear;\n}\n\n.scroll-to-top-btn:active {\n  box-shadow: none;\n}\n\n.scroll-to-top-btn-hidden {\n  pointer-events: none;\n  opacity: 0;\n}\n", ""]);
 
 
 

@@ -10,8 +10,10 @@ import './styles/profile.css'
 import './styles/list.css'
 import './styles/post.css'
 import './styles/term.css'
+import './styles/scroll.css'
 import { Asided } from './components/Asided'
 import { GA } from './components/GA'
+import { ScrollToTopButton } from './components/ScrollToTopButton'
 
 function App () {
   return (
@@ -39,6 +41,7 @@ function App () {
             </Router>
           </React.Suspense>
         )}/>
+        <ScrollToTopButton/>
       </main>
     </Root>
   )

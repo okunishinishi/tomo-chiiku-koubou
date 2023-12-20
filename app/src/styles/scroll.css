@@ -1,0 +1,32 @@
+
+.scroll-to-top-btn {
+  display: flex;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  padding: 10px;
+  background-color: rgb(253, 138, 137);
+  color: white;
+  border: none;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  user-select: none;
+  opacity: 1;
+  transition: opacity 0.2s linear;
+}
+
+.scroll-to-top-btn:active {
+  box-shadow: none;
+}
+
+.scroll-to-top-btn-hidden {
+  pointer-events: none;
+  opacity: 0;
+}
