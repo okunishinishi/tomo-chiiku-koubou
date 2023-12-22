@@ -1,0 +1,195 @@
+<style>
+.balloon-009 {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    gap: 0 22px;
+}
+
+.balloon-009 img {
+    max-width: 70px;
+    height: 100%;
+    border: 3px solid #dfe6ec;
+    border-radius: 50%;
+}
+
+.balloon-009 p {
+    position: relative;
+    max-width: 300px;
+    margin: 3px 0 0;
+    padding: .8em 1em;
+    border-radius: 5px;
+    background-color: #fffee0;
+    color: #333333;
+}
+
+.balloon-009 p::before {
+    position: absolute;
+    left: -15px;
+    width: 15px;
+    height: 30px;
+    background-color: #fffee0;
+    clip-path: polygon(0 50%, 100% 0, 100% 100%);
+    content: '';
+}
+</style>
+
+
+<img src="../public/images/blogs/kazu_title.png"/>
+<br>
+<br>
+<br>
+<div style="padding: 1rem; border-left: 8px solid #FE008C; background: #FED2D2; font-size: 20px;">
+  数の理解を深める「数の学習シート」を作ったよ！
+
+</div>
+<br>
+数と数字のマッチング練習と、数系列の学習ができる<font color="#FE008C"><b>「数の学習シート」</b></font>を作りました！<br>
+<br>
+<img src="../public/images/blogs/kazu1.png"/><br>
+<br>
+<div class="balloon-009">
+    <img src="../public/images/avatar.png" />
+    <p>数に興味の出てきた3歳のむすめにぴったり！</p><br>
+</div>
+<br>
+<br>
+市販のワークは、何度も繰り返し取り組むことができなかったり、<br>
+玩具だと散らかってしまったり…<br>
+<br>
+<font color="#FE008C"><b>シンプルで、何度も繰り返しできる</b></font>ものを作りたいなぁと思っていました！<br>
+<br>
+そこで、ラミネーターと、100均で買えるマジックテープで作る<br>
+<font color="#FE008C"><b>数の学習シート</b></font>作ってみました👍<br>
+<br>
+<br>
+<p style="background-color:#F0F0F0; padding: 0 10px;"><br>
+  <b>目次</b><br>
+  <br><a href="#mokuji1">データシェア</a><br>
+  <a href="#mokuji2">シートの作り方</a><br>
+  <a href="#mokuji3">3歳むすめの反応は？</a><br>
+  <br></p>
+<br>
+<a name="mokuji1">
+  <div style="padding: 1rem; border-left: 8px solid #FE008C; background: #FED2D2; font-size: 20px;">データシェア</div>
+</a><br>
+データは3種類あります💡<br>
+<br>
+<font color="#FE008C"><b> ①数字カード</b></font><br>
+<img src="../public/images/blogs/kazu4.png"/><br>
+ダウンロードは<a target="_blank" href="../public/pdf/suuzi_daisi.pdf">こちら</a><br>
+<br>
+<br>
+<font color="#FE008C"><b> ②数と数字のマッチングシート（台紙）</b></font><br>
+<img src="../public/images/blogs/kazu5.png"/><br>
+ダウンロードは<a target="_blank" href="../public/pdf/kazu_daisi1.pdf">こちら</a><br>
+<br>
+<br>
+<font color="#FE008C"><b> ③数系列シート（台紙）</b></font><br>
+<img src="../public/images/blogs/kazu6.png"/><br>
+ダウンロードは<a target="_blank" href="../public/pdf/kazu_daisi2.pdf">こちら</a><br>
+<br>
+<div style="padding: 10px; margin-bottom: 10px; border: 1px dashed #FE008C;">
+  <b>*注意*</b><br>
+  利用事項をよく確認の上ご使用ください。<br>
+  <br>
+  <font color="#FE008C"><b>〇</b></font>ご家庭での個人利用<br>
+  <font color="blue"><b>×</b></font>素材の加工・販売・商用利用不可<br>
+  <font color="blue"><b>×</b></font>素材の無断転載<br>
+  <br></div>
+<br>
+<div class="balloon-009">
+    <img src="../public/images/avatar.png" />
+    <p>台紙は全て、①の数カードに対応しています！</p><br>
+</div><br>
+<br>
+<br>
+<a name="mokuji2">
+  <div style="padding: 1rem; border-left: 8px solid #FE008C; background: #FED2D2; font-size: 20px;">シートの作り方</div>
+</a><br>
+<br>
+<div style="border: solid 1px #E65; padding: 10px; border-width: 2px; border-radius: 10px; margin: 10px 30px;">
+  １，印刷する
+</div><br>
+まずはデータの印刷をお願いします👍<br>
+<br>
+<br>
+<div style="border: solid 1px #E65; padding: 10px; border-width: 2px; border-radius: 10px; margin: 10px 30px;">
+  ２，ラミネート加工をする
+</div><br>
+ラミネート加工をしていきます。<br>
+数カードは、角を丸く切り落としてくださいね👍<br>
+<br>
+<div class="balloon-009">
+    <img src="../public/images/avatar.png" />
+    <p>ラミネーターはアイリスオーヤマのものを使っています！<br>
+</p><br>
+</div>
+<br>
+<table border="0" cellpadding="0" cellspacing="0"><tr><td><div style="border:1px solid #95a5a6;border-radius:.75rem;background-color:#FFFFFF;width:280px;margin:0px;padding:5px;text-align:center;overflow:hidden;"><table><tr><td style="width:128px"><a href="https://hb.afl.rakuten.co.jp/ichiba/37dcc509.a83ee615.37dcc50a.6fcda0fd/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbungudo%2F539623%2F&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIxMjh4MTI4IiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjEsImNvbXAiOiJkb3duIiwicHJpY2UiOjEsImJvciI6MSwiY29sIjoxLCJiYnRuIjoxLCJwcm9kIjowLCJhbXAiOmZhbHNlfQ%3D%3D" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/37dcc509.a83ee615.37dcc50a.6fcda0fd/?me_id=1231561&item_id=10007424&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fbungudo%2Fcabinet%2Fbaner%2F03130468%2F09543374%2F539623.jpg%3F_ex%3D128x128&s=128x128&t=picttext" border="0" style="margin:2px" alt="[商品価格に関しましては、リンクが作成された時点と現時点で情報が変更されている場合がございます。]" title="[商品価格に関しましては、リンクが作成された時点と現時点で情報が変更されている場合がございます。]"></a></td><td style="vertical-align:top;width:136px;display: block;"><p style="font-size:12px;line-height:1.4em;text-align:left;margin:0px;padding:2px 6px;word-wrap:break-word"><a href="https://hb.afl.rakuten.co.jp/ichiba/37dcc509.a83ee615.37dcc50a.6fcda0fd/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbungudo%2F539623%2F&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIxMjh4MTI4IiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjEsImNvbXAiOiJkb3duIiwicHJpY2UiOjEsImJvciI6MSwiY29sIjoxLCJiYnRuIjoxLCJwcm9kIjowLCJhbXAiOmZhbHNlfQ%3D%3D" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;">ラミネーター 本体 A3 A4 対応 アイリスオーヤマ ラミネート ラミネート機 100ミクロン 100μ LM32X</a><br><span >価格：4,480円（税込、送料無料)</span> <span style="color:#BBB">(2023/12/19時点)</span></p></td></tr></table></div><br><p style="color:#000000;font-size:12px;line-height:1.4em;margin:5px;word-wrap:break-word"></p></td></tr></table>
+<br>
+<div style="border: solid 1px #E65; padding: 10px; border-width: 2px; border-radius: 10px; margin: 10px 30px;">
+  ３，マジックテープを貼る
+</div><br>
+マジックテープを貼っていきます。<br>
+<br>
+<div class="balloon-009">
+    <img src="../public/images/avatar.png" />
+    <p>マジックテープは100均で手に入れることができます！</p><br>
+</div>
+<br>
+<br>
+<div style="border: solid 1px #E65; padding: 10px; border-width: 2px; border-radius: 10px; margin: 10px 30px;">
+  ４，これで完成♪
+</div><br>
+<br>
+こちらが完成のイメージ図です💁‍♀️<br>
+<img src="../public/images/blogs/kazu2.png"/><br><br>
+<br>
+↓数系列シートはこんな感じ！<br>
+<img src="../public/images/blogs/kazu7.png"/><br><br>
+
+<br>
+<a name="mokuji3">
+  <div style="padding: 1rem; border-left: 8px solid #FE008C; background: #FED2D2; font-size: 20px;">3歳むすめの反応は？
+  </div>
+</a><br>
+<img src="../public/images/blogs/kazu3.png"/><br>
+<br>
+最初は想定通りに、数と数字のマッチングをしたり<br>
+い～ち、に～と数を数えながら数系列シートに取り組みました💡<br>
+<br>
+<br>
+さらにそこから、わざと間違った数を貼って<font color="#FE008C"><b>どこが違っている～？</b></font>と言って遊んでみたり、<br>
+５は１と４だね、と言って数を貼ってみたり、<br>
+<br>
+とても<font color="#FE008C"><b>遊びの汎用性が高い</b></font>ことに気づきました🥹<br>
+<br>
+<br>
+<div class="balloon-009">
+    <img src="../public/images/avatar.png" />
+    <p>たし算・ひき算の学習にもいずれ使えそうです💡<br>
+</p><br>
+</div>
+<br>
+<br>
+シンプルな分、汎用性高く使っていけそうでとても満足しています🫶<br>
+<br>
+これからも、思いついたらシートの追加をしていきたいです！<br>
+<br>
+<br>
+<div class="balloon-009">
+    <img src="../public/images/avatar.png" />
+    <p>余談ですが、マジックテープをビリビリするのって楽しいよね！<br>
+</p><br>
+</div>
+<br>
+マジックテープをビリビリしたいお年頃の子にもおすすめです👍<br>
+<br>
+指先の知育になっていいですよね！<br>
+<br>
+全部マジックテープでくっつくので、散らからないのも嬉しいポイントだなと個人的に思います！<br>
+<br><br>
+<table border="0" cellpadding="0" cellspacing="0"><tr><td><div style="border:1px solid #95a5a6;border-radius:.75rem;background-color:#FFFFFF;width:280px;margin:0px;padding:5px;text-align:center;overflow:hidden;"><table><tr><td style="width:128px"><a href="https://hb.afl.rakuten.co.jp/ichiba/204da11e.463b2b12.204da11f.8e375bdf/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16993783%2F&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIxMjh4MTI4IiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjEsImNvbXAiOiJkb3duIiwicHJpY2UiOjEsImJvciI6MSwiY29sIjoxLCJiYnRuIjoxLCJwcm9kIjowLCJhbXAiOmZhbHNlfQ%3D%3D" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/204da11e.463b2b12.204da11f.8e375bdf/?me_id=1213310&item_id=20548002&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fbook%2Fcabinet%2F4907%2F9784052054907_1_2.jpg%3F_ex%3D128x128&s=128x128&t=picttext" border="0" style="margin:2px" alt="[商品価格に関しましては、リンクが作成された時点と現時点で情報が変更されている場合がございます。]" title="[商品価格に関しましては、リンクが作成された時点と現時点で情報が変更されている場合がございます。]"></a></td><td style="vertical-align:top;width:136px;display: block;"><p style="font-size:12px;line-height:1.4em;text-align:left;margin:0px;padding:2px 6px;word-wrap:break-word"><a href="https://hb.afl.rakuten.co.jp/ichiba/204da11e.463b2b12.204da11f.8e375bdf/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16993783%2F&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIxMjh4MTI4IiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjEsImNvbXAiOiJkb3duIiwicHJpY2UiOjEsImJvciI6MSwiY29sIjoxLCJiYnRuIjoxLCJwcm9kIjowLCJhbXAiOmZhbHNlfQ%3D%3D" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;">2歳　まるごとこれ1冊　できるかな （学研の幼児ワーク） [ 加藤信巳（知脳教育研究所） ]</a><br><span >価格：990円（税込、送料無料)</span> <span style="color:#BBB">(2023/12/22時点)</span></p></td></tr></table></div><br><p style="color:#000000;font-size:12px;line-height:1.4em;margin:5px;word-wrap:break-word"></p></td></tr></table><br>
+<table border="0" cellpadding="0" cellspacing="0"><tr><td><div style="border:1px solid #95a5a6;border-radius:.75rem;background-color:#FFFFFF;width:280px;margin:0px;padding:5px;text-align:center;overflow:hidden;"><table><tr><td style="width:128px"><a href="https://hb.afl.rakuten.co.jp/ichiba/204da11e.463b2b12.204da11f.8e375bdf/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16583816%2F&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIxMjh4MTI4IiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjEsImNvbXAiOiJkb3duIiwicHJpY2UiOjEsImJvciI6MSwiY29sIjoxLCJiYnRuIjoxLCJwcm9kIjowLCJhbXAiOmZhbHNlfQ%3D%3D" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/204da11e.463b2b12.204da11f.8e375bdf/?me_id=1213310&item_id=20236921&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fbook%2Fcabinet%2F3078%2F9784052053078.jpg%3F_ex%3D128x128&s=128x128&t=picttext" border="0" style="margin:2px" alt="[商品価格に関しましては、リンクが作成された時点と現時点で情報が変更されている場合がございます。]" title="[商品価格に関しましては、リンクが作成された時点と現時点で情報が変更されている場合がございます。]"></a></td><td style="vertical-align:top;width:136px;display: block;"><p style="font-size:12px;line-height:1.4em;text-align:left;margin:0px;padding:2px 6px;word-wrap:break-word"><a href="https://hb.afl.rakuten.co.jp/ichiba/204da11e.463b2b12.204da11f.8e375bdf/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16583816%2F&link_type=picttext&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIxMjh4MTI4IiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjEsImNvbXAiOiJkb3duIiwicHJpY2UiOjEsImJvciI6MSwiY29sIjoxLCJiYnRuIjoxLCJwcm9kIjowLCJhbXAiOmZhbHNlfQ%3D%3D" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;">3歳　まるごとこれ1冊　できるかな （学研の幼児ワーク） [ 学研の幼児ワーク編集部 ]</a><br><span >価格：990円（税込、送料無料)</span> <span style="color:#BBB">(2023/12/22時点)</span></p></td></tr></table></div><br><p style="color:#000000;font-size:12px;line-height:1.4em;margin:5px;word-wrap:break-word"></p></td></tr></table><br>
+<br>
