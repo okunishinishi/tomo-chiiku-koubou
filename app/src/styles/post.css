@@ -10,3 +10,27 @@
   object-fit: contain;
   max-width: 100%;
 }
+
+.post-download-button:link,
+.post-download-button:visited {
+  display: inline-flex;
+  border-radius: 10px;
+  padding:20px 20px;
+  background: var(--primary-color);
+  color: white;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  max-width: 200px;
+  margin: 10px auto;
+}
+.post-download-button:link:active,
+.post-download-button:visited:active {
+  opacity: 0.4;
+  box-shadow: none;
+}
+

@@ -32,6 +32,28 @@
     clip-path: polygon(0 50%, 100% 0, 100% 100%);
     content: '';
 }
+.post-download-button:link,
+.post-download-button:visited {
+  display: inline-flex;
+  border-radius: 10px;
+  padding:20px 20px;
+  background: var(--primary-color);
+  color: white;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  max-width: 200px;
+  margin: 10px auto;
+}
+.post-download-button:link:active,
+.post-download-button:visited:active {
+  opacity: 0.4;
+  box-shadow: none;
+}
 </style>
 
 
@@ -88,13 +110,23 @@
 <font color="#FE008C"><b>●ふゆのうた</b></font><br>
 <img src="../public/images/blogs/kumon5.png"/><br>
 <br>
-ダウンロードは<a target="_blank" href="../public/pdf/huyunouta.pdf">こちら</a><br>
+<a target="_blank"
+   href="../public/pdf/huyunouta.pdf"
+　 class="post-download-button">
+  <i class="fa-solid fa-download"></i>
+  ダウンロードする
+</a>
 <br>
 <br>
 <font color="#FE008C"><b>●たべもののうた</b></font><br>
 <img src="../public/images/blogs/kumon4.png"/><br>
 <br>
-ダウンロードは<a target="_blank" href="../public/pdf/tabemononouta.pdf">こちら</a><br>
+<a target="_blank"
+   href="../public/pdf/tabemononouta.pdf"
+   　 class="post-download-button">
+  <i class="fa-solid fa-download"></i>
+  ダウンロードする
+</a>
 <br>
 <br>
 <div style="padding: 10px; margin-bottom: 10px; border: 1px dashed #FE008C;">

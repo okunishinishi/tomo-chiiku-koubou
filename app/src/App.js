@@ -26,6 +26,7 @@ function App () {
       <GA/>
       <Head>
         <meta name="google-site-verification" content="Q0Nv-ILCP08JCV33VdQ5No4MeMlyTVib-WTJe2FTqas"/>
+      <script src="https://kit.fontawesome.com/369f508c74.js" crossOrigin="anonymous"></script>
       </Head>
       <header>
         <div className="header-row">
