@@ -14,6 +14,7 @@
   "productionSourceMaps": false,
   "silent": false,
   "entry": "index.js",
+  "siteRoot": "https://tomo-c-k.netlify.app",
   "plugins": [
     [
       "/Users/okuni/Projects/tomo-chiiku-koubou/app/node_modules/react-static-plugin-source-filesystem/node.api.js",
@@ -40,9 +41,8 @@
     "HTML_TEMPLATE": "/Users/okuni/Projects/tomo-chiiku-koubou/app/dist/index.html",
     "STATIC_DATA": "/Users/okuni/Projects/tomo-chiiku-koubou/app/dist/staticData"
   },
-  "siteRoot": "/",
   "basePath": "",
-  "publicPath": "/",
+  "publicPath": "https://tomo-c-k.netlify.app/",
   "assetsPath": "",
   "extractCssChunks": false,
   "inlineCss": false,

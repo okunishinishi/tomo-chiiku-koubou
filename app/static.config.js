@@ -42,10 +42,14 @@ const term = {
   content: fs.readFileSync(path.resolve(termsDir, 'term.html'), 'utf-8')
 }
 
+const siteRoot = 'https://tomo-c-k.netlify.app'
+
 export default {
+  siteRoot,
   getSiteData: () => ({
     appTitle: 'とも知育工房',
-    appDescription: `親子'とも'に楽しくて知育になる！ 未就学児向けの知育プリントや素材を公開中！`
+    appDescription: `親子'とも'に楽しくて知育になる！ 未就学児向けの知育プリントや素材を公開中！`,
+    siteRoot,
   }),
   getRoutes: async () => {
 
